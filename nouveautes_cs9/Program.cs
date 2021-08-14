@@ -26,8 +26,21 @@ namespace nouveautes_cs9
         }
     }
     */
-
+    /* Immutable */
     record PersonneRecord(string nom, int age);
+
+    record PersoneRecordAffichage    : PersonneRecord
+    {
+        public PersoneRecordAffichage(string nom, int age) : base(nom, age)
+        {
+
+        }
+
+        public void Afficher()
+        {
+            Console.WriteLine("Nom : " + nom + " " + age + " ans.");
+        }
+    }
 
     struct PersonneStruct
     {
@@ -61,9 +74,13 @@ namespace nouveautes_cs9
     {
         static void Main(string[] args)
         {
-            var personne1 = new PersonneRecord("Mario", 20);
+            var personne1 = new PersoneRecordAffichage("Mario", 20);
+            var personne2 = personne1 with { nom = "Cristina" };
 
             var (nom, age) = personne1;
+
+            personne1.Afficher();
+            personne2.Afficher();
 
             Console.WriteLine(nom);
             Console.WriteLine(age);
