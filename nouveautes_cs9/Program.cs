@@ -2,16 +2,33 @@
 
 namespace nouveautes_cs9
 {
+    /*
     record PersonneRecord
     {
-        public string nom { get; set; }
-        public int age { get; set; }
+        public string nom { get; init; }
+        public int age { get; init; }
+
+        public PersonneRecord(string nom, int age)
+        {
+            this.nom = nom;
+            this.age = age;
+        }
+
+        public void Deconstruct(out string nom, out int age)
+        {
+            nom = this.nom;
+            age = this.age;
+        }
 
         public void Afficher()
         {
             Console.WriteLine("Nom : " + nom + " " + age + " ans.");
         }
     }
+    */
+
+    record PersonneRecord(string nom, int age);
+
     struct PersonneStruct
     {
         public string nom { get; set; }
@@ -38,22 +55,18 @@ namespace nouveautes_cs9
 
             if (nom == objetAComparer.nom && age == objetAComparer.age) return true;
             return false;
-            //return base.Equals(obj);
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            var personne1 = new PersonneRecord() { nom = "Mario", age = 40 };
-            var personne2 = personne1 with { };
+            var personne1 = new PersonneRecord("Mario", 20);
 
-            //personne1.nom = "Maria";
-            
-            personne1.Afficher();
-            personne2.Afficher();
+            var (nom, age) = personne1;
 
-            Console.WriteLine(personne1.Equals(personne2));
+            Console.WriteLine(nom);
+            Console.WriteLine(age);
 
             /*
              * Types simples (int, float, char...) -> Value Type (valuer)
