@@ -46,9 +46,10 @@ namespace nouveautes_cs9
         static void Main(string[] args)
         {
             var personne1 = new PersonneRecord() { nom = "Mario", age = 40 };
-            var personne2 = personne1 with { nom = "Cristina" };
+            var personne2 = personne1 with { };
 
             //personne1.nom = "Maria";
+            
             personne1.Afficher();
             personne2.Afficher();
 
@@ -58,7 +59,7 @@ namespace nouveautes_cs9
              * Types simples (int, float, char...) -> Value Type (valuer)
              * structures -> Value Type (valeur = les valeurs des champs)
              * class -> Reference Type (valeur = adresse de l'objet)
-             *
+             * List<string> -> Reference Type (valeur = adresse de l'objet)
              */
 
         }
