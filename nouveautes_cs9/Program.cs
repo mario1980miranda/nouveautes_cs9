@@ -4,8 +4,8 @@ namespace nouveautes_cs9
 {
     class Personne
     {
-        public string nom;
-        public int age;
+        public string nom { get; init; }
+        public int age { get; set; }
 
         public void Afficher()
         {
@@ -18,8 +18,13 @@ namespace nouveautes_cs9
         {
             var personne1 = new Personne() { nom = "Mario", age = 40 };
 
-            personne1.nom = "Maria";
+            //personne1.nom = "Maria";
             personne1.Afficher();
+
+            Console.WriteLine(
+                    "Le nom de la personne est : " +
+                    personne1.nom
+                );
 
             /*
             foreach (var arg in args)
